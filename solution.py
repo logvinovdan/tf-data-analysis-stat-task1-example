@@ -1,13 +1,17 @@
 import pandas as pd
 import numpy as np
-
+import math
 
 chat_id = 834639322 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array) -> float:
-    errors = np.random.normal(loc=-31, scale=np.exp(1), size=x.shape)   # Генерация случайных ошибок измерения скорости
-    v_mean = np.mean(x + errors)   # Средняя скорость машин за 10 секунд с учетом ошибок измерения
-    v_0 = 0   # Начальная скорость машин
-    t = 10   # Время ускорения
-    a = (v_mean - v_0) / t   # Точечная оценка коэффициента ускорения
+    mu = -31 + math.exp(1)
+    size = len(x)
+    v = 0
+    t1 = 0
+    t = 10
+    for i in range(size):
+        v += x[i]*(t-mu)
+        t1 += (t - mu)**2
+    a = v/t1
     return a
