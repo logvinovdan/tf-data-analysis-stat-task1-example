@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-chat_id = 360196441
+chat_id = 834639322
 
 def solution(x: np.array) -> float:
     n = len(x)
