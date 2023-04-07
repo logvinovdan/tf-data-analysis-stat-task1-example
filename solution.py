@@ -7,7 +7,7 @@ chat_id = 834639322
 def solution(x: np.array) -> float:
     n = len(x)
     time = 10
-    errors = np.random.exponential(scale=1, size=n) - 13
+    errors = np.random.exponential(scale=1, size=n) - 31
     v_real = x - errors
     a = np.mean(v_real) / time
     return a
